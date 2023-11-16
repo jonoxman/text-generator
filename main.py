@@ -52,12 +52,12 @@ def check_on_topic(input, topic):
             result = f"'{d['sequence']}' is probably not about '{topic}' but rather about '{highest_topic}', with probability {d['scores'][highest]} being at least 0.2 higher than all other possibilities"
     else:
         if highest_topic == topic:
-            result = f"'{d['sequence']}' is most likely about '{topic}', with probability {d['scores'][highest]}, but it may also be about '{second_highest_topic}' with probability {d['scores'][highest]}"
+            result = f"'{d['sequence']}' is most likely about '{topic}', with probability {d['scores'][highest]}, but it may also be about '{second_highest_topic}' with probability {d['scores'][second_highest]}"
         else:
             if second_highest_topic == topic:
-                result = f"'{d['sequence']}' is most likely not about '{topic}', but rather about '{highest_topic}' with probability {d['scores'][highest]}. It is however also possible it is about '{second_highest_topic}' with probability {d['scores'][highest]}"
+                result = f"'{d['sequence']}' is most likely not about '{topic}', but rather about '{highest_topic}' with probability {d['scores'][highest]}. It is however also possible it is about '{second_highest_topic}' with probability {d['scores'][second_highest]}"
             else: 
-                result = f"'{d['sequence']}' is most likely not about '{topic}', but rather about '{highest_topic}' with probability {d['scores'][highest]}. The second most likely possibility is '{second_highest_topic}' with probability {d['scores'][highest]}"
+                result = f"'{d['sequence']}' is most likely not about '{topic}', but rather about '{highest_topic}' with probability {d['scores'][highest]}. The second most likely possibility is '{second_highest_topic}' with probability {d['scores'][second_highest]}"
     return result
 
 def classify_responses(topic):
